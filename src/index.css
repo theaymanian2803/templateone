@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --surface: 0 0% 7%;
+    --surface-elevated: 0 0% 10%;
+    --brand: 210 100% 60%;
+    --brand-foreground: 0 0% 100%;
+    --hairline: 0 0% 16%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 210 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16%;
+    --input: 0 0% 14%;
+    --ring: 210 100% 60%;
+    --radius: 1rem;
+
+    --gradient-hero:
+      radial-gradient(ellipse 80% 60% at 50% 0%, hsla(210, 100%, 20%, 0.788), transparent 70%),
+      linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 2%));
+    --gradient-text: linear-gradient(180deg, hsla(0, 0%, 100%, 0.233), hsl(0 0% 60%));
+    --shadow-glow: 0 30px 80px -20px hsl(210 100% 50% / 0.35);
+    --shadow-card: 0 20px 60px -20px hsl(0 0% 0% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .hairline {
+    border-color: hsl(var(--hairline));
+  }
+  .glass {
+    background: hsl(0 0% 6% / 0.6);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+}
